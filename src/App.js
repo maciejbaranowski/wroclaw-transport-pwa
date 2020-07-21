@@ -68,14 +68,11 @@ const GenericPanel = props => {
   const [data, update_data] = useState(null);
   useEffect(() => {
     try {
-      document.write("FETCHING:")
-      Axios.get(`http://localhost:5000/${props.urlResource}`).then((res) => {
+      Axios.get(`http://wroclaw-transport.herokuapp.com/${props.urlResource}`).then((res) => {
         update_data(res.data);
-        document.write(res.data);
-      })
+      });
     } catch (e) {
-      document.write("ERROR:")
-      document.write(e);
+      console.log(e)
     }
   }, [props.urlResource])
   return (
