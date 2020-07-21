@@ -67,9 +67,16 @@ const MpkPolesTables = props => {
 const GenericPanel = props => {
   const [data, update_data] = useState(null);
   useEffect(() => {
-    Axios.get(`http://localhost:5000/${props.urlResource}`).then((res) => {
-      update_data(res.data);
-    })
+    try {
+      document.write("FETCHING:")
+      Axios.get(`http://localhost:5000/${props.urlResource}`).then((res) => {
+        update_data(res.data);
+        document.write(res.data);
+      })
+    } catch (e) {
+      document.write("ERROR:")
+      document.write(e);
+    }
   }, [props.urlResource])
   return (
   <div className="card">
