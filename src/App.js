@@ -2,6 +2,16 @@ import React, {useState, useEffect} from 'react';
 import './App.css';
 import Axios from 'axios';
 
+const BikeNumberBadge = props => {
+  let badgeType = "success";
+  if (props.number < 3) {
+    badgeType = "warning";
+  }
+  if (props.number === 0) {
+    badgeType = "danger";
+  }
+  return <span class={`badge bg-${badgeType}`}>{props.number}</span>
+}
 const BikeStationTable = props => {
   if (props.data === null)
     return <div className="spinner-border text-primary"></div>
@@ -17,7 +27,7 @@ const BikeStationTable = props => {
         {props.data.map(station => (
           <tr key={station.name}>
             <td>{station.name}</td>
-            <td>{station.numberOfBikes}</td>
+            <td><BikeNumberBadge number={station.numberOfBikes} /></td>
           </tr>        
         ))}
         </tbody>
