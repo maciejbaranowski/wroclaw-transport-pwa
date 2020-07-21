@@ -7,7 +7,7 @@ const BikeNumberBadge = props => {
   if (props.number < 3) {
     badgeType = "warning";
   }
-  if (props.number === 0) {
+  if (props.number == 0) {
     badgeType = "danger";
   }
   return <span class={`badge bg-${badgeType}`}>{props.number}</span>
