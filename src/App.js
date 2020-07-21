@@ -91,13 +91,13 @@ const MpkPanel = () => (
 const App = () => {
   return (
     <div className="App container">
-      <div className="row justify-content-center">
-        <div className="col-xs-12 col-md-6">
+      <div className="row justify-content-center m-2">
+        <div className="col-lg-12 col-xl-6">
           <BikePanel />
         </div>
       </div>
-      <div className="row justify-content-center">
-        <div className="col-xs-12 col-md-6">
+      <div className="row justify-content-center m-2">
+        <div className="col-lg-12 col-xl-6">
           <MpkPanel />
         </div>
       </div>     
