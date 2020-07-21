@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 5000;
 const dataProvider = require("wroclaw-transport-data-provider");
 
 app.get("/bikes", (req, res) => {
@@ -27,6 +27,8 @@ app.get("/mpk", (req, res) => {
     .then((data) => res.send(data))
     .catch(console.log);
 });
+
+app.use(express.static('build'))
 
 app.listen(port, () =>
   console.log(`Example app listening at http://localhost:${port}`)
